@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head_title %}
+Login | ShoppersHalt
+{% endblock %}
+
+{% block nav_items %}
+
+    <li class="nav-item"><a class="nav-link" style="border:1px solid var(--white) ;border-radius:54px;padding-right: 12px;padding-left: 12px;" href="/cart/"><i class="fas fa-shopping-cart"></i> Cart {{ cart_item_count }}</a></li>
+
+{% endblock %} 
+
+{% block content_main %}
+
+<main class="page hire-me-page">
+    <section class="portfolio-block hire-me">
+        <div class="container">
+            <div class="heading">
+                <h2>Login</h2>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="form-group"><label for="username">Username</label><input class="form-control" type="username" name="username" id="username"></div>
+                <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" name="password" id="password"></div>
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col-md-6"><a href="/signup/" role="button" class="btn btn-primary btn-block" style="background: var(--white);color: var(--blue); margin-top:30px;">Sign Up</a></div>
+                        <div class="col-md-6 button"><button class="btn btn-primary btn-block" type="submit">Login</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

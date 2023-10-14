@@ -1,0 +1,72 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block head_title %}
+Home | ShoppersHalt
+{% endblock %}
+
+{% block nav_items %} 
+
+    {% if user.is_authenticated %}
+    <li class="nav-item"><a class="nav-link" href="#">{{ user.first_name }}</a></li>
+    {% else %}
+    <li class="nav-item"><a class="nav-link" href="login/">Login</a></li>
+    <li class="nav-item">
+        <a class="nav-link" href="signup/" style="
+          border-radius: 54px;
+          border-color: var(--red);
+          background: var(--red);
+          padding-right: 12px;
+          padding-left: 12px;
+        ">Signup</a>
+    </li>
+    {% endif %}
+
+    <li class="nav-item">
+        <a class="nav-link" style="
+          border: 1px solid var(--white);
+          border-radius: 54px;
+          padding-right: 12px;
+          padding-left: 12px;
+        " href="cart/"><i class="fas fa-shopping-cart"></i> Cart {{ cart_item_count }}</a>
+    </li>
+
+{% endblock %} 
+
+{% block content_main %}
+
+<main class="page projets-page">
+    <section class="portfolio-block project-no-images">
+        <div class="container">
+            <div class="heading">
+                <h2>Products</h2>
+            </div>
+            <div class="row">
+
+                {% for item in items %}
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card-no-image">
+                        <img style="width: 80%; display: block; margin: 0 auto 1rem"
+                            src="{% static 'images/' %}{{item.image}}" />
+                        <h4>{{ item.name }}</h4>
+                        <div style="display: flex; justify-content: space-between">
+                            <h5>Rs. {{ item.price }}</h5>
+                            <div>
+                                <a class="btn btn-outline-primary btn-sm" role="button"
+                                    style="margin-right: 8px; float: none" href="#"><i class="fas fa-heart"></i></a>
+                                <a class="btn btn-outline-primary btn-sm" role="button" style="float: none"
+                                    href="add-to-cart/{{ item.id }}"><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

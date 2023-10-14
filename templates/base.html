@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %} {% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/ionicons.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/untitled.css' %}" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container">
+            <a class="navbar-brand logo" href="/">ShoppersHalt</a><button data-toggle="collapse" class="navbar-toggler"
+                data-target="#navbarNav">
+                <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+
+                    {% block nav_items %} 
+                    {% endblock %} 
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content_main %}
+    {% endblock content_main %}
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="links">
+                <a href="#">About Us</a><a href="#">Contact Us</a><a href="#">Careers</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
+                        class="icon ion-social-instagram-outline"></i></a><a href="#"><i
+                        class="icon ion-social-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    {% block extra_scripts %}
+    {% endblock extra_scripts %}
+
+</body>
+
+</html>
